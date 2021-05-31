@@ -4,9 +4,12 @@
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 const express = require("express");
-const app = express();
 const router = require('./routes.js');
 const bodyParser = require('body-parser');
+const morgan = require('morgan')
+const app = express();
+
+
 
 // ----- Parse JSON requests
 
@@ -20,6 +23,9 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
+
+// ----- Log all requests
+app.use(morgan('combined'))
 
 // https://expressjs.com/en/starter/basic-routing.html
 app.use('/', router);

@@ -2,25 +2,20 @@ const express = require("express");
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-// 	const db = req.app.get('db');
-// 	const remindersCol = db.collection('reminders');
+  console.log('Handled!')
+  res.send([])
+});
 
-// 	const query = {};
+router.post('/', async (req, res) => {
+  console.log('Handled!')
+  console.log(req.body)
+  res.json(req.body)
+});
 
-// 	if (req.query.from || req.query.to) {
-// 		query.datetime = {};
-
-// 		if (req.query.from)
-// 			query.datetime.$gte = new Date(+req.query.from);
-
-// 		if (req.query.to)
-// 			query.datetime.$lt = new Date(+req.query.to);
-// 	}
-
-// 	const data = await remindersCol.find(query).toArray();
-
-// 	res.json(data);
-  res.send('Hello from GET')
+router.delete('/', async (req, res) => {
+  console.log('Handled!')
+  console.log(req.body)
+  res.json([]).status(200)
 });
 
 router.get('/get-range', async (req, res) => {
